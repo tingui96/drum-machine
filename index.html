@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="./app.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css">       
+  </head>
+  <body>
+    <div id="root">
+        <div class="inner-container" id="drum-machine">
+            <div class="pad-bank">
+                <div class="drum-pad" id="Heater-1" onclick="heater1()" onkeypress="heater1()">
+                    <audio class="clip" id="Q" src="./Heater-1.mp3"></audio>Q</div>
+            <div class="drum-pad" id="Heater-2" onclick="heater2()">
+                <audio class="clip" id="W" src="./Heater-2.mp3"></audio>W</div>
+            <div class="drum-pad" id="Heater-3" onclick="heater3()">
+                <audio class="clip" id="E" src="./Heater-3.mp3"></audio>E</div>
+            <div class="drum-pad" id="Heater-4" onclick="heater4()">
+                <audio class="clip" id="A" src="./Heater-4_1.mp3"></audio>A</div>
+            <div class="drum-pad" id="Clap" onclick="clap()">
+                <audio class="clip" id="S" src="./Heater-6.mp3"></audio>S</div>
+            <div class="drum-pad" id="Open-HH" onclick="openHH()">
+                <audio class="clip" id="D" src="./Dsc_Oh.mp3"></audio>D</div>
+            <div class="drum-pad" id="Kick-n'-Hat"  onclick="KNH()" >
+                <audio class="clip" id="Z" src="./Kick_n_Hat.mp3"></audio>Z</div>
+            <div class="drum-pad" id="Kick" onclick="kick()">
+                <audio class="clip" id="X" src="./RP4_KICK_1.mp3"></audio>X</div>
+            <div class="drum-pad" id="Closed-HH" onclick="closeHH()">
+                <audio class="clip" id="C" src="./Cev_H2.mp3"></audio>C</div>
+            </div>
+            <div class="logo"><div class="inner-logo ">FCC&nbsp;</div><i class="inner-logo fa fa-free-code-camp"></i></div>
+            <div class="controls-container"><div class="control"><p>Power</p><div class="select">
+                <div class="inner" style="float: right;" onclick="">
+                </div>
+            </div>
+        </div>
+        <p id="display">&nbsp;</p>
+        <div class="volume-slider">
+            <input max="1" min="0" step="0.01" type="range" value="0.3"></div><div class="control"><p>Bank</p><div class="select"><div class="inner" style="float: left;"></div></div></div></div></div>
+    
+  
+    </div>
+    </body>
+    <script type="text/javascript" src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> 
+    <script>
+        // Obtener el elemento de audio
+        const audioQ = document.querySelector('#Q');
+        const audioW = document.querySelector('#W');
+        const audioE = document.querySelector('#E');
+        const audioA = document.querySelector('#A');
+        const audioS = document.querySelector('#S');
+        const audioD = document.querySelector('#D');
+        const audioZ = document.querySelector('#Z');
+        const audioX = document.querySelector('#X');
+        const audioC = document.querySelector('#C');
+        document.querySelector('.inner').addEventListener('click', function() {
+            if(this.style.cssFloat === 'right')
+                this.style.cssFloat = 'left';            
+            else
+                this.style.cssFloat = 'right'             
+        });
+        const display = document.querySelector('#display');
+        // Agregar un controlador de eventos keydown al documento
+        document.addEventListener('keypress', function(event) {
+         // Verificar si la tecla presionada es "Q"
+            if(document.querySelector('.inner').style.cssFloat === 'right')
+            {
+            if (event.key === 'q' || event.key === 'Q') {
+            audioQ.play();
+            display.innerHTML = "Heater 1"
+            }
+            if (event.key === 'w' || event.key === 'W') {
+            audioW.play();
+            display.innerHTML = "Heater 2"
+            }
+            if (event.key === 'e' || event.key === 'E') {
+            audioE.play();
+            display.innerHTML = "Heater 3"
+            }
+            if (event.key === 'a' || event.key === 'A') {
+            audioA.play();
+            display.innerHTML = "Heater 4"
+            }
+            if (event.key === 's' || event.key === 'S') {
+            audioS.play();
+            display.innerHTML = "Clap"
+            }
+            if (event.key === 'd' || event.key === 'D') {
+            audioD.play();
+            display.innerHTML = "Open HH"
+            }
+            if (event.key === 'z' || event.key === 'Z') {
+            audioZ.play();
+            display.innerHTML = "Kick 'n Hat"
+            }
+            if (event.key === 'x' || event.key === 'X') {
+            audioX.play();
+            display.innerHTML = "Kick"
+            }
+            if (event.key === 'c' || event.key === 'C') {
+            audioC.play();
+            display.innerHTML = "Close HH"
+            }
+        }
+            
+        });
+
+        function heater1(e)
+        {
+            if(document.querySelector('.inner').style.cssFloat === 'right')
+            {
+                display.innerHTML = "Heater 1"
+                audioQ.play();
+            }
+        }
+        function heater2(e)
+        {
+            if(document.querySelector('.inner').style.cssFloat === 'right')
+            {
+                display.innerHTML = "Heater 2"
+                audioW.play()
+            }
+        }
+        function heater3(e)
+        {
+            if(document.querySelector('.inner').style.cssFloat === 'right')
+            {
+                display.innerHTML = "Heater 3"
+                audioE.play()
+            }
+        }
+        function heater4(e)
+        {
+            if(document.querySelector('.inner').style.cssFloat === 'right')
+            {
+                display.innerHTML = "Heater 4"
+                audioA.play()
+            }
+        }
+        function clap(e)
+        {
+            if(document.querySelector('.inner').style.cssFloat === 'right')
+            {
+                display.innerHTML = "Heater Clap"
+                audioS.play()
+            }
+        }
+        function openHH(e)
+        {
+            if(document.querySelector('.inner').style.cssFloat === 'right')
+            {
+                display.innerHTML = "Open HH"
+                audioD.play()
+            }
+        }
+        function KNH(e)
+        {
+            if(document.querySelector('.inner').style.cssFloat === 'right')
+            {
+                display.innerHTML = "Kick 'n Hat"
+                audioZ.play()
+            }
+        }
+        function kick(e)
+        {
+            if(document.querySelector('.inner').style.cssFloat === 'right')
+            {
+                display.innerHTML = "Kick"
+                audioX.play()
+            }
+        }
+        function closeHH(e)
+        {
+            if(document.querySelector('.inner').style.cssFloat === 'right')
+            {
+                display.innerHTML = "Close HH"
+                audioC.play()
+            }
+        }
+    </script>
+</html>
